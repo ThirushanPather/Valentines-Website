@@ -1,0 +1,644 @@
+/* Ensuring everything centers properly */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers content again */
+    min-height: 100vh; /* Ensures full height coverage */
+    background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    overflow-y: visible; /* Allows scrolling if needed */
+}
+
+/* Ensuring container centers all content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Pushes everything to center vertically */
+    min-height: 80vh; /* Ensures enough space for centering */
+    width: 100%;
+}
+
+/* Fix for elements not appearing */
+body.loaded {
+    opacity: 1;
+}
+
+/* Styling for the heading */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* Styling for the introductory text */
+.intro-text {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+/* 🌟 Glowing Panel */
+.glow-panel {
+    background: rgba(255, 255, 255, 0.15); /* Soft translucent background */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0px 0px 20px rgba(255, 117, 140, 0.8); /* Soft pink glow */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    animation: glow-pulse 2s infinite alternate;
+    transition: opacity 1.5s ease-in-out; /* Smooth fade effect */
+}
+
+/* 🔥 Subtle Glow Pulse Animation */
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0px 0px 20px rgba(255, 117, 140, 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 30px rgba(255, 150, 170, 1);
+    }
+}
+
+/* 🎭 Fade Out the Entire Panel */
+.glow-panel.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Prevents interaction during fade-out */
+}
+
+/* Styling for the start button */
+#start-button {
+    background-color: white;
+    color: #ff758c;
+    font-size: 1.4rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#start-button:hover {
+    background-color: #ff9eb5;
+    color: white;
+}
+
+/* Hide elements initially */
+.hidden {
+    display: none;
+} 
+/* Wordle Grid */
+/* Wordle Grid */
+/* Wordle Grid */
+/* Wordle Grid */
+/* Wordle Grid */
+/* 🌟 Glowing Panel */
+.glow-panel {
+    background: rgba(255, 255, 255, 0.15); /* Soft translucent background */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0px 0px 20px rgba(255, 117, 140, 0.8); /* Soft pink glow */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    animation: glow-pulse 2s infinite alternate;
+    margin-top: 20px;
+}
+
+/* 🔥 Subtle Glow Pulse Animation */
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0px 0px 20px rgba(255, 117, 140, 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 30px rgba(255, 150, 170, 1);
+    }
+}
+
+/* Wordle Grid */
+#word-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 10px;
+    margin: 10px auto;
+    justify-content: center;
+}
+
+/* 🏆 Letter Box Styling */
+.letter-box {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid black;
+    background-color: white;
+}
+
+/* Pop-up animation effect for each letter */
+@keyframes pop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pop-effect {
+    animation: pop 0.4s ease-out;
+}
+
+/* Next Level button - Unique Styling */
+#next-level-button {
+    display: none; /* Hidden until Wordle is completed */
+    position: absolute;
+    right: 20px; /* Push to the right-hand side */
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 12px 24px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #ff758c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(255, 117, 140, 0.8); /* Glowing effect */
+}
+
+/* Add right arrow */
+#next-level-button::after {
+    content: " →";
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+/* Cool animation when Next Level button appears */
+.next-level-show {
+    display: inline-block !important;
+    animation: fadeInRight 0.8s ease-in-out forwards;
+}
+
+/* Hover effect: More glow & slight scale */
+#next-level-button:hover {
+    box-shadow: 0 0 25px rgba(255, 117, 140, 1);
+    transform: scale(1.1);
+}
+
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+.present {
+    background-color: yellow;
+    color: black;
+}
+
+.absent {
+    background-color: gray;
+    color: white;
+}
+
+/* Input Styling */
+#guess-input {
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    width: 250px;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
+/* 🌟 General Button Styling */
+button {
+    background-color: white;
+    color: #ff758c;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 8px;
+}
+
+button:hover {
+    background-color: #ff9eb5;
+    color: white;
+}
+
+/* 🌟 Buttons inside the glow panel */
+.glow-panel button {
+    background-color: white;
+    color: #ff758c;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 8px;
+}
+
+.glow-panel button:hover {
+    background-color: #ff9eb5;
+    color: white;
+}
+
+/* Hidden Next Level Button */
+.hidden {
+    display: none;
+}
+
+/* Connections Game */
+/* Layout Adjustments */
+/* Ensure the container does not restrict width */
+/* 🔮 Purple Theme Background */
+body {
+    background: linear-gradient(to bottom right, #6a0dad, #9b59b6); /* Dark to lighter purple gradient */
+}
+
+/* Ensure the container does not restrict width */
+.container {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Make game-wrapper stretch to full width */
+.game-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 30px;
+}
+
+/* 🔥 Glowing Panel - Adjusted for Level 2 */
+.glow-panel {
+    background: rgba(255, 255, 255, 0.15); /* Soft translucent background */
+    padding: 35px; /* Increased padding to fully wrap inner content */
+    border-radius: 20px;
+    text-align: center;
+    max-width: 900px; /* Slightly wider than game panel */
+    box-shadow: 0px 0px 25px rgba(255, 117, 140, 0.8); /* Soft pink glow */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🌟 Glowing Game Panel */
+#game-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(160, 82, 210, 0.3); /* Soft purple translucent effect */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(142, 68, 173, 0.8); /* Glowing effect */
+    backdrop-filter: blur(10px);
+    animation: glow-pulse 2s infinite alternate;
+    width: 500px;
+}
+
+/* 🌟 Glowing Correct Groups Panel */
+#correct-groups {
+    flex-grow: 1;
+    max-width: 400px;
+    background: rgba(160, 82, 210, 0.3); /* Soft purple translucent effect */
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0px 0px 20px rgba(142, 68, 173, 0.8); /* Glowing effect */
+    backdrop-filter: blur(10px);
+    animation: glow-pulse 2s infinite alternate;
+}
+
+/* 🔥 Subtle Glow Pulse Animation */
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0px 0px 20px rgba(142, 68, 173, 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 30px rgba(160, 82, 210, 1);
+    }
+}
+
+/* Connections Grid */
+#connections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+/* Buttons Panel */
+#buttons-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#next-level-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns to the right */
+    width: 100%;
+    margin-top: 20px;
+    padding-right: 40px; /* Adds spacing from the right */
+}
+
+
+
+/* 🌟 Next Level Button - Stands Out */
+#next-level-button {
+    display: none; /* Initially hidden */
+    padding: 14px 26px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #8e44ad, #c39bd3); /* Deep to soft purple */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(142, 68, 173, 0.8); /* Glowing effect */
+}
+
+/* Show button with animation when all groups are completed */
+.next-level-show {
+    display: flex !important;
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+/* Fade-in animation from below */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Add right arrow */
+#next-level-button::after {
+    content: " →";
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+/* Hover effect: More glow & slight scale */
+#next-level-button:hover {
+    box-shadow: 0 0 25px rgba(142, 68, 173, 1);
+    transform: scale(1.1);
+}
+
+/* Fade-in animation
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+} */
+
+/* Correct Groups - Styling */
+.group-box {
+    background: linear-gradient(to bottom right, #a569bd, #d7bde2);
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(142, 68, 173, 0.5);
+}
+
+/* Word Tiles */
+.word-tile {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid white;
+    background-color: #8e44ad; /* Deep purple */
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Word Tile Hover Effect - Slight Pop Up */
+.word-tile:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(160, 82, 210, 0.5);
+}
+
+/* Selected Word Tiles */
+.word-tile.selected {
+    background-color: #c39bd3;
+    color: white;
+}
+
+/* Submit & Try Again Buttons */
+#submit-group, #reveal-words {
+    background: linear-gradient(to right, #9b59b6, #d7bde2); /* Purple gradient */
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    align-self: center;
+}
+
+/* Hover effect for buttons */
+#submit-group:hover, #reveal-words:hover {
+    background: linear-gradient(to right, #8e44ad, #c39bd3);
+    box-shadow: 0 0 10px rgba(160, 82, 210, 0.8);
+}
+
+
+/* 🔐 Cipher Level Layout - Left & Right Alignment */
+/* 🔐 Cipher Level Layout - Left & Right Alignment */
+/* 🔐 Cipher Level Layout - Left & Right Alignment */
+/* 🔐 Cipher Level Layout - Left & Right Alignment */
+/* 🔐 Cipher Level Layout - Left & Right Alignment */
+/* 🔐 Cipher Level Layout - Side-by-Side */
+/* 🔐 Cipher Level Wrapper (Flexbox for Row Layout) */
+#cipher-wrapper {
+    display: flex;
+    flex-direction: row; /* Ensures containers are side-by-side */
+    justify-content: center; /* Centers the two sections */
+    align-items: flex-start;
+    width: 80%;
+    max-width: 1000px;
+    gap: 50px; /* Spacing between cipher and riddles */
+    margin: 0 auto; /* Center the entire wrapper */
+}
+
+/* 🔐 Cipher Container (Left) */
+#cipher-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Ensures contents are centered */
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    width: 55%; /* Takes half the space */
+    text-align: center;
+    height: auto;
+}
+
+/* 🔡 Cipher Grid */
+.cipher-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 8px;
+}
+
+/* 🔲 Smaller Letter Boxes */
+.cipher-box {
+    width: 35px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid black;
+    background-color: white;
+}
+
+/* 🔢 Adjust Number Labels */
+.number-label {
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    margin-top: 3px;
+}
+
+/* 📜 Riddle Container (Right) */
+#riddle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Ensures contents are centered */
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    width: 45%; /* Takes half the space */
+    text-align: center;
+    height: auto;
+}
+
+/* 📜 Riddle Section Styling */
+#riddle-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+/* 📖 Riddle Text */
+.riddle {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+/* ✏️ Riddle Input Box */
+.riddle-input {
+    width: 120px;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+/* 🎯 Submit Button */
+#submit-cipher {
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: white;
+    color: #ff758c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* 🚀 Hover Effect */
+#submit-cipher:hover {
+    background-color: #ff9eb5;
+    color: white;
+}
+
+/* ❌ Hide Elements Until They Are Revealed */
+.hidden {
+    display: none;
+}
+
+/* Ensure Overall Layout Alignment */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+

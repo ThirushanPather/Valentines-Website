@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Question 💜</title>
+    <link rel="stylesheet" href="../css/final-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+</head>
+<body>
+    <audio id="bg-music" autoplay loop>
+        <source src="../assets/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <!-- 💜 Glow Panel for Final Message -->
+        <div class="glow-panel">
+            <h1 class="final-message">So, will you be my Valentine? 💜</h1>
+        </div>
+
+        <!-- 💜 Button Container -->
+        <div class="button-container">
+            <button id="yes-button" onclick="celebrateLove()">YES 💜</button>
+            <button id="no-button" onmouseover="moveNoButton()">NO 💔</button>
+        </div>
+    </div>
+
+    <script>
+        // 🎆 Fireworks & Confetti Celebration
+        function celebrateLove() {
+            document.querySelector(".final-message").textContent = "Yay! I knew you'd say yes! 🎇💜";
+            startFireworks();
+        }
+
+        // ✨ Firework & Confetti Effect
+        function startFireworks() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 100,
+                        spread: 100,
+                        origin: { x: Math.random(), y: Math.random() - 0.2 },
+                        colors: ["#6a0dad", "#a569bd", "#c39bd3", "#d7bde2"],
+                    });
+                }, i * 200);
+            }
+        }
+
+        // 😂 No Button Dodging Effect
+        function moveNoButton() {
+            const button = document.getElementById("no-button");
+            const maxX = window.innerWidth - button.clientWidth - 20; // Prevent going off-screen
+            const maxY = window.innerHeight - button.clientHeight - 20; // Prevent going off-screen
+
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+
+            button.style.position = "absolute";
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+        }
+    </script>
+    <script src="../js/transitions.js"></script>
+</body>
+</html>

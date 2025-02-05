@@ -1,0 +1,257 @@
+/* 💜 Ensuring everything centers properly */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #6a0dad, #9b59b6); /* Dark to light purple */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    overflow-y: visible;
+}
+
+/* 🔮 Ensuring container centers all content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 80vh;
+    width: 100%;
+}
+
+/* ⚡ Fix for elements not appearing */
+body.loaded {
+    opacity: 1;
+}
+
+/* 🎀 Styling for the heading */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #f3e5f5; /* Light lavender */
+}
+
+/* 🌟 Glowing Panel */
+.glow-panel {
+    background: rgba(255, 255, 255, 0.1); /* Soft purple translucent background */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0px 0px 20px rgba(160, 82, 210, 0.6); /* Purple glow */
+    backdrop-filter: blur(10px);
+    animation: glow-pulse 2s infinite alternate;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* ✨ Subtle Glow Pulse Animation */
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0px 0px 20px rgba(160, 82, 210, 0.6);
+    }
+    100% {
+        box-shadow: 0px 0px 30px rgba(186, 104, 200, 0.9);
+    }
+}
+
+/* 🎭 Fade Out the Entire Panel */
+.glow-panel.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 🌟 Styling for the start button */
+#start-button {
+    background-color: white;
+    color: #8e44ad;
+    font-size: 1.4rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#start-button:hover {
+    background-color: #b39ddb;
+    color: white;
+}
+
+/* 🔮 Hide elements initially */
+.hidden {
+    display: none;
+}
+
+/* 🟪 Wordle Grid */
+#word-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 10px;
+    margin: 10px auto;
+    justify-content: center;
+}
+
+/* 💎 Letter Box Styling */
+.letter-box {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid #ba68c8; /* Medium purple */
+    background-color: #ede7f6; /* Soft lilac */
+    color: #4a148c; /* Deep purple */
+}
+
+/* 🏆 Pop-up animation effect for each letter */
+@keyframes pop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pop-effect {
+    animation: pop 0.4s ease-out;
+}
+
+/* 🟪 Next Level button - Unique Styling */
+#next-level-button {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 12px 24px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #8e44ad, #c39bd3);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(142, 68, 173, 0.8);
+}
+
+/* ➡️ Add right arrow */
+#next-level-button::after {
+    content: " →";
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+/* 🎉 Cool animation when Next Level button appears */
+.next-level-show {
+    display: inline-block !important;
+    animation: fadeInRight 0.8s ease-in-out forwards;
+}
+
+/* 🌟 Hover effect: More glow & slight scale */
+#next-level-button:hover {
+    box-shadow: 0 0 25px rgba(142, 68, 173, 1);
+    transform: scale(1.1);
+}
+
+/* 🎭 Fade-in animation */
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ✅ Correct letters */
+.correct {
+    background-color: #4a148c;
+    color: white;
+}
+
+/* 🟡 Present but wrong place */
+.present {
+    background-color: #ffeb3b;
+    color: black;
+}
+
+/* ❌ Absent letters */
+.absent {
+    background-color: #6b7280;
+    color: white;
+}
+
+/* 🎯 Input Styling */
+#guess-input {
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    width: 250px;
+    border-radius: 8px;
+    border: 2px solid #8e44ad;
+    background: white;
+    color: #4a148c;
+}
+
+/* ✨ General Button Styling */
+button {
+    background-color: white;
+    color: #8e44ad;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 8px;
+}
+
+button:hover {
+    background-color: #b39ddb;
+    color: white;
+}
+
+/* ✨ Buttons inside the glow panel */
+.glow-panel button {
+    background-color: white;
+    color: #8e44ad;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 8px;
+}
+
+.glow-panel button:hover {
+    background-color: #b39ddb;
+    color: white;
+}
+
+/* ❌ Hidden Next Level Button */
+.hidden {
+    display: none;
+}

@@ -1,0 +1,135 @@
+
+
+
+/* FINAL PAGE */
+/* FINAL PAGE */
+/* FINAL PAGE */
+/* 💜 Final Page - Purple Modern Theme */
+/* FINAL PAGE */
+/* FINAL PAGE */
+/* FINAL PAGE */
+/* 💜 FINAL PAGE THEME */
+/* 💜 Background */
+/* 💜 FINAL PAGE THEME */
+/* 💜 Background */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #6a0dad, #9b59b6); /* Deep Purple Gradient */
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* 💜 Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
+    text-align: center;
+}
+
+/* ✨ Glowing Panel */
+.glow-panel {
+    background: rgba(255, 255, 255, 0.2); /* Soft frosted effect */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0px 0px 20px rgba(160, 82, 210, 0.7); /* Purple glow */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    animation: glow-pulse 2s infinite alternate;
+}
+
+/* ✨ Glowing Effect */
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0px 0px 20px rgba(160, 82, 210, 0.7);
+    }
+    100% {
+        box-shadow: 0px 0px 30px rgba(200, 162, 255, 1);
+    }
+}
+
+/* 💜 Final Message */
+.final-message {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+/* 💜 Button Container */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* 💜 Yes Button - Elegant Glow */
+#yes-button {
+    background: linear-gradient(to right, #8e44ad, #c39bd3); /* Deep to soft purple */
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0px 6px 15px rgba(160, 82, 210, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#yes-button:hover {
+    background: linear-gradient(to right, #9b59b6, #d7bde2);
+    transform: scale(1.1);
+    box-shadow: 0px 8px 20px rgba(142, 68, 173, 1);
+}
+
+/* 💔 No Button - Translucent Purple */
+#no-button {
+    background: rgba(160, 82, 210, 0.3); /* Soft translucent purple */
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border: 2px solid rgba(200, 162, 255, 0.7); /* Subtle border */
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(6px); /* Frosted effect */
+    box-shadow: 0px 0px 15px rgba(160, 82, 210, 0.4); /* Soft glow */
+}
+
+/* 💔 Hover Effect - Subtle Glow */
+#no-button:hover {
+    background: rgba(200, 162, 255, 0.4); /* Lighter purple on hover */
+    box-shadow: 0px 0px 20px rgba(200, 162, 255, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🚀 Smooth Fade-in Effect */
+body.loaded {
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* 🎆 Fireworks Effect */
+@keyframes fireworks {
+    0% { transform: scale(0.5); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.8; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* 🥰 Hide Elements Initially */
+.hidden {
+    display: none;
+}

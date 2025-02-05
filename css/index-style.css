@@ -1,0 +1,97 @@
+/* Ensuring everything centers properly */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers content again */
+    min-height: 100vh; /* Ensures full height coverage */
+    background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    overflow-y: visible; /* Allows scrolling if needed */
+}
+
+/* Ensuring container centers all content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Pushes everything to center vertically */
+    min-height: 80vh; /* Ensures enough space for centering */
+    width: 100%;
+}
+
+/* Fix for elements not appearing */
+body.loaded {
+    opacity: 1;
+}
+
+/* Styling for the heading */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* Styling for the introductory text */
+.intro-text {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+/* 🌟 Glowing Panel */
+.glow-panel {
+    background: rgba(255, 255, 255, 0.15); /* Soft translucent background */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0px 0px 20px rgba(255, 117, 140, 0.8); /* Soft pink glow */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    animation: glow-pulse 2s infinite alternate;
+    transition: opacity 1.5s ease-in-out; /* Smooth fade effect */
+}
+
+/* 🔥 Subtle Glow Pulse Animation */
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0px 0px 20px rgba(255, 117, 140, 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 30px rgba(255, 150, 170, 1);
+    }
+}
+
+/* 🎭 Fade Out the Entire Panel */
+.glow-panel.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Prevents interaction during fade-out */
+}
+
+/* Styling for the start button */
+#start-button {
+    background-color: white;
+    color: #ff758c;
+    font-size: 1.4rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#start-button:hover {
+    background-color: #ff9eb5;
+    color: white;
+}
+
+/* Hide elements initially */
+.hidden {
+    display: none;
+} 
