@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1 - Wordle</title>
+    <link rel="stylesheet" href="css/level1-style.css">
+
+    <!-- Apply 90% Zoom -->
+    <style>
+        body {
+            transform: scale(0.9); /* Scale page to 90% */
+            transform-origin: top center; /* Keeps it centered */
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" autoplay loop>
+        <source src="assets/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <h1>Level 1: Guess the Word! 💖</h1>
+
+        <!-- 🌟 Glowing Panel -->
+        <div class="glow-panel">
+            <div id="word-grid"></div>
+            <input type="text" id="guess-input" maxlength="5" placeholder="Enter a 5-letter word">
+            <button onclick="submitGuess()">Enter</button>
+            <button onclick="resetGame()">Reset</button>
+            <p id="message"></p>
+        </div>
+
+        <!-- Confetti Canvas -->
+        <canvas id="confetti-canvas"></canvas>
+
+        <!-- Next Level Button (Hidden by Default) -->
+        <a href="level2.html"><button id="next-level-button" class="hidden">Next Level</button></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+    <script src="js/wordle.js"></script>
+    <script src="js/transitions.js"></script>
+</body>
+</html>

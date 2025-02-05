@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3 - Word Cipher</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <audio id="bg-music" autoplay loop>
+        <source src="assets/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <h1>Level 3: Solve the Cipher! 🔐</h1>
+
+        <!-- Wrapper for Cipher & Riddle sections -->
+        <div id="cipher-wrapper">
+            <!-- Cipher Container (Left) -->
+            <div id="cipher-container">
+                <h2>Decipher the Phrase:</h2>
+                <div id="cipher-grid"></div>
+            </div>
+
+            <!-- Riddle Container (Right) -->
+            <div id="riddle-container">
+                <h2>Answer the Riddles:</h2>
+                <div id="riddle-list"></div>
+            </div>
+        </div>
+
+        <p id="cipher-message"></p>
+
+        <!-- 🚀 Hidden Final Level Button (Appears when all riddles are solved) -->
+        <button id="final-level-button" class="hidden" onclick="goToFinalLevel()">Final Level →</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+    <script src="js/cipher.js"></script>
+    <script>
+        function goToFinalLevel() {
+            document.body.style.opacity = 0; // Smooth transition
+            setTimeout(() => {
+                window.location.href = "final.html";
+            }, 500);
+        }
+    </script>
+    <script src="js/transitions.js"></script>
+</body>
+</html>

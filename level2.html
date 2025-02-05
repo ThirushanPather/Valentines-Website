@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2 - Connections Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <audio id="bg-music" autoplay loop>
+        <source src="assets/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <h1>Level 2: Find the Connections! 💖</h1>
+
+        <!-- 🌟 Glowing Panel Wrapper for Game -->
+        <div class="glow-panel">
+            <div class="game-wrapper">
+                <div id="game-panel">
+                    <div id="connections-grid"></div>
+                    <div id="buttons-panel">
+                        <p id="attempts-remaining"></p>
+                        <button id="submit-group" onclick="submitGroup()">Submit Group</button>
+                        <button id="reveal-words" onclick="resetGame()">Try Again</button>
+                    </div>
+                </div>
+                <div id="correct-groups" class="side-panel">
+                    <h2>Correct Groups</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📌 Next Level Button (Now Positioned to the Right of Game Wrapper) -->
+        <div id="next-level-container">
+            <button id="next-level-button" onclick="goToNextLevel()">Next Level</button>
+        </div>
+
+        <p id="message"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+    <script src="js/connections.js"></script>
+    <script>
+        function goToNextLevel() {
+            window.location.href = "level3.html";
+        }
+    </script>
+    <script src="js/transitions.js"></script>
+</body>
+</html>
